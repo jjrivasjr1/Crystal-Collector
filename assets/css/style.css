@@ -1,0 +1,8 @@
+body{
+	justify-content: center;
+}
+#crystal_1 {
+	height:300px;
+	width:100px;
+	border: 4px solid purple;
+}
