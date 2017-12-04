@@ -1,90 +1,181 @@
 //start the program
 $(document).ready(function() {
-	var randomNumber = Math.floor(Math.random()*31+29);
-	console.log(randomNumber);
 //generate a random number  players must match to use everytime the game is reset
-
-
- $("#random-number").text(randomNumber);
 
 
 
 //generate a random number for all 4 crystals and they must change everytime the game is reset
-var crystal1 = Math.floor(Math.random()*11+1);
-var crystal2 = Math.floor(Math.random()*11+1);
-var crystal3 = Math.floor(Math.random()*11+1);
-var crystal4 = Math.floor(Math.random()*11+1);
-//create a function for each crystal
-//$("crystal_1").on(click, function (){
+var num1 = Math.floor(Math.random()*11+1);
+var num2 = Math.floor(Math.random()*11+1);
+var num3 = Math.floor(Math.random()*11+1);
+var num4 = Math.floor(Math.random()*11+1);
 
 //});
-
 var totalScore = 0;
 var wins= 0;
 var losses= 0;
-
+var randomNumber = Math.floor(Math.random()*31+29);
+ $("#random-number").text(randomNumber);
 $("#wins").text(wins);
 $("#losses").text(losses);
-$("#totalScore").text(totalScore);
-
-
+$(".totalScore").text(totalScore);
 
 function restart(){
-	var randomNumber = Math.floor(Math.random()*69)+30;
+	var totalScore = 0;
+	console.log(totalScore);
+	randomNumber = Math.floor(Math.random()*69)+30;
 	console.log(randomNumber);
 //generate a random number  players must match to use everytime the game is reset
-
-
  $("#random-number").text(randomNumber);
 
-
-
 //generate a random number for all 4 crystals and they must change everytime the game is reset
-var crystal1 = Math.floor(Math.random()*11+1);
-var crystal2 = Math.floor(Math.random()*11+1);
-var crystal3 = Math.floor(Math.random()*11+1);
-var crystal4 = Math.floor(Math.random()*11+1);
-//create a function for each crystal
-//$("crystal_1").on(click, function (){
 
-//});
+// }
 
-var totalScore = 0;
-var wins= 0;
-var losses= 0;
+	 num1 = Math.floor(Math.random()*11+1);
+	 num2 = Math.floor(Math.random()*11+1);
+	 num3 = Math.floor(Math.random()*11+1);
+	 num4 = Math.floor(Math.random()*11+1);
+	 
 
-$("#wins").text(wins);
-$("#losses").text(losses);
+
+
 $("#totalScore").text(totalScore);
 
 }
 
 function youWin() {
 	alert("YOU WIN!!");
- wins++;
- $("#wins").text(wins);
- reset();
+ 
+ totalScore = 0; 
+ 	
+ restart();
+
 }
 
 function youLose() {
 	alert("YOU lOSE!!");
- losses++;
- $("#losses").text(losses);
- reset();
+ 
+ totalScore = 0;
+
+ restart();
+ 
 }
 
-$("#crystal_1").on('click', function () {
-	var total = totalScore + crystal1;
-	return total;
-	$("#totalScore").text(totalScore);
+$(".crystal1").on('click', function () {
+
+	 totalScore += num1;
+
+	$(".totalScore").text(totalScore);
 	if(totalScore === randomNumber){
+		
 		youWin();
-	} else if (totalScore > randomNumber){
+
+		wins++;
+		$("#wins").text(wins);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+	} else if (totalScore >= randomNumber){
+		
 		youLose();
+		losses++;
+		$("#losses").text(losses);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
 	}
+
+ });
+$(".crystal2").on('click', function () {
+
+	 totalScore += num2;
+	
+	 // console.log(totalScore);
+	$(".totalScore").text(totalScore);
+	if(totalScore === randomNumber){
+		
+		youWin();
+
+
+		wins++;
+		$("#wins").text(wins);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+
+	} else if (totalScore >= randomNumber){
+		
+		youLose();
+		losses++;
+		$("#losses").text(losses);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+	}
+
  });
 
-});
+$(".crystal3").on('click', function () {
+
+	 totalScore += num3;
+	
+	 // console.log(totalScore);
+	$(".totalScore").text(totalScore);
+	if(totalScore === randomNumber){
+		
+		youWin();
+
+		wins++;
+		$("#wins").text(wins);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+	} else if (totalScore >= randomNumber){
+		
+		youLose();
+		losses++;
+		$("#losses").text(losses);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+	}
+
+ });
+
+$(".crystal4").on('click', function () {
+
+	 totalScore += num4;
+	console.log(totalScore);
+	 // console.log(totalScore);
+	$(".totalScore").text(totalScore);
+	if(totalScore === randomNumber){
+		
+		youWin();
+
+		wins++;
+		$("#wins").text(wins);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+	} else if (totalScore >= randomNumber){
+		
+		youLose();
+		losses++;
+		$("#losses").text(losses);
+		total = 0;
+		$(".totalScore").text(totalScore);
+		restart();
+	}
+
+ });
+
+ });
+
+
+
+
+
 
 
 //inside each function should have the random number stored in a variable
